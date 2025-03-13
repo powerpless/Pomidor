@@ -1,16 +1,21 @@
-import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
-import Timer from "./components/Timer";
-import "./App.css";
+import TaskForm from "./components/TaskForm";
+import FilterButtons from "./components/FilterButtons";
+import { PomodoroProvider } from "./context/PomodoroContext";
+import PomodoroTimer from "./components/PomodoroTimer";
+import "./index.css";
 
 function App() {
   return (
-    <div className="app">
-      <h1>Todo List с Pomodoro</h1>
-      <Timer />
-      <TaskForm />
-      <TaskList />
-    </div>
+    <PomodoroProvider> 
+      <div>
+      <h1>To-Do List x Pomodoro</h1>
+        <PomodoroTimer /> 
+        <TaskForm />
+        <FilterButtons />
+        <TaskList />
+      </div>
+    </PomodoroProvider>
   );
 }
 

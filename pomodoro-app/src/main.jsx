@@ -1,11 +1,12 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-import SettingsContextProvider from './context/SettingsContext.jsx'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import { TaskProvider } from "./context/TaskContext";  // ✅ Проверяем импорт
 
-createRoot(document.getElementById('root')).render(
-  <SettingsContextProvider>
-    <App />
-  </SettingsContextProvider>
-)
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <TaskProvider>   {/* ✅ Здесь должен быть TaskProvider */}
+      <App />
+    </TaskProvider>
+  </React.StrictMode>
+);
